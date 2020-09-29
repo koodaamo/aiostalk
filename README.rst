@@ -17,7 +17,7 @@ Getting Started
     >>> 
     >>> async def main():
     ...    client = aiostalk.Client(('127.0.0.1', 11300))
-    ...    await clienct.connect()
+    ...    await client.connect()
     ...    job = await client.put('hello')
     ...    print(job.id)
     ...    job = await client.reserve()
@@ -27,9 +27,9 @@ Getting Started
     ...    await client.close()
     >>> 
     >>> asyncio.run(main())
-    ... 1
-    ... 'hello'
-
+    1
+    hello
+    
 
 Documentation
 -------------
