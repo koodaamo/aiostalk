@@ -28,6 +28,7 @@ Getting Started
     >>> 
     >>> asyncio.run(main())
     1
+    1
     hello
     
 
