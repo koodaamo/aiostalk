@@ -10,6 +10,8 @@ It is based on another library called `greenstalk`_.
 Getting Started
 ---------------
 
+Presuming beanstalkd running on localhost at standard port.
+
 .. code-block:: pycon
 
     >>> import asyncio
