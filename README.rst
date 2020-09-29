@@ -4,7 +4,7 @@ aiostalk
 aiostalk is a small and shameless Python client library for communicating
 with the `beanstalkd`_ work queue.
 
-It is based on another library called `greenstalk`_ by Justin Mayhew.
+It is built on another library called `greenstalk`_ by Justin Mayhew.
 
 
 Getting Started
