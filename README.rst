@@ -33,6 +33,8 @@ Presuming beanstalkd running on localhost at standard port.
     1
     hello
     
+Using the Client as an asyncio context manager is also supported.
+
 
 Documentation
 -------------

@@ -28,11 +28,12 @@ class Client:
         self.used_tube = use
         self.watched_tubes = watch
 
-    def __enter__(self) -> 'Client':
+    async def __aenter__(self) -> 'Client':
+        await self.connect()
         return self
 
-    def __exit__(self, *args: Any) -> None:
-        self.close()
+    async def __aexit__(self, *args: Any) -> None:
+        await self.close()
 
     async def connect(self):
         "connect to beanstalkd server, by default to standard port 11300"
