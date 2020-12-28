@@ -2,7 +2,7 @@ import socket
 from typing import Any, BinaryIO, Dict, Iterable, List, Optional, Tuple, Union
 from asyncio import Lock, Queue, open_connection, get_running_loop, current_task
 from greenstalk import *
-from greenstalk import _parse_response, _parse_chunk, _to_id
+from greenstalk import _parse_response, _parse_chunk, _parse_simple_yaml, _parse_simple_yaml_list, _to_id
 
 
 
