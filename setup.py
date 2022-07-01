@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='aiostalk',
-    version='1.0',
+    version='1.1',
     description='A Python 3 asyncio client for the beanstalkd work queue',
     long_description=open('README.rst').read(),
     author='Petri Savolainen',
