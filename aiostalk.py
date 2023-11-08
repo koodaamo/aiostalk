@@ -2,7 +2,7 @@ import socket
 from typing import Any, BinaryIO, Dict, Iterable, List, Optional, Tuple, Union
 from asyncio import Lock, Queue, open_connection, get_running_loop, current_task
 from greenstalk import *
-from greenstalk import _parse_response, _parse_chunk, _parse_simple_yaml, _parse_simple_yaml_list, _to_id
+from greenstalk import _parse_response, _parse_chunk, _parse_stats, _parse_list, _to_id
 
 
 
@@ -88,12 +88,12 @@ class Client:
     async def _stats_cmd(self, cmd: bytes) -> Stats:
         size = await self._int_cmd(cmd, b'OK')
         chunk = await self._read_chunk(size)
-        return _parse_simple_yaml(chunk)
+        return _parse_stats(chunk)
 
     async def _list_cmd(self, cmd: bytes) -> List[str]:
         size = await self._int_cmd(cmd, b'OK')
         chunk = await self._read_chunk(size)
-        return _parse_simple_yaml_list(chunk)
+        return _parse_list(chunk)
 
     async def put(self,
             body: Body,
