@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='aiostalk',
-    version='1.1',
+    version='1.2',
     description='A Python 3 asyncio client for the beanstalkd work queue',
     long_description=open('README.rst').read(),
     author='Petri Savolainen',
@@ -16,8 +16,11 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3 :: Only',
-        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12'
     ],
 )
