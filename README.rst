@@ -20,8 +20,8 @@ Presuming beanstalkd running on localhost at standard port.
     >>> async def main():
     ...    client = aiostalk.Client(('127.0.0.1', 11300))
     ...    await client.connect()
-    ...    job = await client.put('hello')
-    ...    print(job.id)
+    ...    job_id = await client.put('hello')
+    ...    print(job_id)
     ...    job = await client.reserve()
     ...    print(job.id)
     ...    print(job.body)
