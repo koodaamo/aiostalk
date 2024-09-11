@@ -66,7 +66,7 @@ class Client:
         return _parse_response(line, expected)
 
     async def _read_chunk(self, size: int) -> bytes:
-        data = await self._reader.read(size + 2)
+        data = await self._reader.readexactly(size + 2)
         return _parse_chunk(data, size)
 
     async def _int_cmd(self, cmd: bytes, expected: bytes) -> int:
