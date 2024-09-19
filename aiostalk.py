@@ -158,33 +158,33 @@ class Client:
         await self._send_cmd(b'delete %d' % _to_id(job), b'DELETED')
 
     async def release(self,
-                job: Job,
+                job: JobOrID,
                 priority: int = DEFAULT_PRIORITY,
                 delay: int = DEFAULT_DELAY) -> None:
         """Releases a reserved job.
 
-        :param job: The job to release.
+        :param job: The job or job ID to release.
         :param priority: An integer between 0 and 4,294,967,295 where 0 is the
                          most urgent.
         :param delay: The number of seconds to delay the job for.
         """
-        await self._send_cmd(b'release %d %d %d' % (job.id, priority, delay), b'RELEASED')
+        await self._send_cmd(b'release %d %d %d' % (_to_id(job), priority, delay), b'RELEASED')
 
-    async def bury(self, job: Job, priority: int = DEFAULT_PRIORITY) -> None:
+    async def bury(self, job: JobOrID, priority: int = DEFAULT_PRIORITY) -> None:
         """Buries a reserved job.
 
-        :param job: The job to bury.
+        :param job: The job or job ID to bury.
         :param priority: An integer between 0 and 4,294,967,295 where 0 is the
                          most urgent.
         """
-        await self._send_cmd(b'bury %d %d' % (job.id, priority), b'BURIED')
+        await self._send_cmd(b'bury %d %d' % (_to_id(job), priority), b'BURIED')
 
-    async def touch(self, job: Job) -> None:
+    async def touch(self, job: JobOrID) -> None:
         """Refreshes the TTR of a reserved job.
 
-        :param job: The job to touch.
+        :param job: The job or job ID to touch.
         """
-        await self._send_cmd(b'touch %d' % job.id, b'TOUCHED')
+        await self._send_cmd(b'touch %d' % _to_id(job), b'TOUCHED')
 
     async def watch(self, tube: str) -> int:
         """Adds a tube to the watch list. Returns the number of tubes this
