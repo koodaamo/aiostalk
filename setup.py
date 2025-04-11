@@ -10,7 +10,7 @@ setup(
     url='https://github.com/koodaamo/aiostalk',
     license='MIT',
     py_modules=['aiostalk'],
-    install_requires=['greenstalk>=2.0.2'],
+    install_requires=['greenstalk>=2.1.0'],
     classifiers=[
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
