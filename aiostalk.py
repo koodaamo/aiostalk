@@ -85,7 +85,7 @@ class Client:
     async def _peek_cmd(self, cmd: bytes) -> Job:
         return await self._job_cmd(cmd, b'FOUND')
 
-    async def _stats_cmd(self, cmd: bytes) -> Stats:
+    async def _stats_cmd(self, cmd: bytes) -> Union[Stats, StatsJob, StatsTube]:
         size = await self._int_cmd(cmd, b'OK')
         chunk = await self._read_chunk(size)
         return _parse_stats(chunk)
@@ -241,14 +241,14 @@ class Client:
         """
         self._send_cmd(b'kick-job %d' % _to_id(job), b'KICKED')
 
-    async def stats_job(self, job: JobOrID) -> Stats:
+    async def stats_job(self, job: JobOrID) -> StatsJob:
         """Returns job statistics.
 
         :param job: The job or job ID to return statistics for.
         """
         return await self._stats_cmd(b'stats-job %d' % _to_id(job))
 
-    async def stats_tube(self, tube: str) -> Stats:
+    async def stats_tube(self, tube: str) -> StatsTube:
         """Returns tube statistics.
 
         :param tube: The tube to return statistics for.
