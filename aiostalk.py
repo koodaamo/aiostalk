@@ -77,7 +77,7 @@ class Client:
         id, size = (int(n) for n in await self._send_cmd(cmd, expected))
         chunk = await self._read_chunk(size)
         if self.encoding is None:
-            body = chunk  # type: Body
+            body = chunk  # type: TBody
         else:
             body = chunk.decode(self.encoding)
         return Job(id, body)
@@ -96,7 +96,7 @@ class Client:
         return _parse_list(chunk)
 
     async def put(self,
-            body: Body,
+            body: TBody,
             priority: int = DEFAULT_PRIORITY,
             delay: int = DEFAULT_DELAY,
             ttr: int = DEFAULT_TTR) -> int:
